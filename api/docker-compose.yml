@@ -1,0 +1,26 @@
+version: '2.3'
+
+networks:
+  caddy-cors:
+
+services:
+  api:
+    image: frolvlad/alpine-python3
+    volumes:
+      - .:/api
+    networks:
+      caddy-cors:
+        aliases:
+          - api-back.caddy-cors.com
+    working_dir: /api
+    command: python3 server.py
+
+  api-proxy:
+    image: abiosoft/caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      caddy-cors:
+        aliases:
+          - api.caddy-cors.com
+    command: --conf /etc/caddy/Caddyfile --log stdout --port 80

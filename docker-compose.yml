@@ -1,0 +1,25 @@
+version: '2.3'
+
+networks:
+  caddy-cors:
+
+services:
+  client:
+    extends:
+      file: ./client/docker-compose.yml
+      service: client
+
+  client-proxy:
+    extends:
+      file: ./client/docker-compose.yml
+      service: client-proxy
+
+  api:
+    extends:
+      file: ./api/docker-compose.yml
+      service: api
+
+  api-proxy:
+    extends:
+      file: ./api/docker-compose.yml
+      service: api-proxy

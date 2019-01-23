@@ -1,0 +1,9 @@
+api.caddy-cors.com:80 {
+    cors / http://client.caddy-cors.com
+    # or just `cors /` for any origin
+    log stdout
+    proxy / api-back.caddy-cors.com:8000 {
+    	transparent
+    	websocket
+    }
+}

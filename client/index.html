@@ -1,0 +1,5 @@
+<script type="text/javascript">
+fetch('http://api.caddy-cors.com/res?q=12&s=34&s=56#frag')
+.then(req => req.text())
+.then(txt => document.firstChild.innerHTML = txt);
+</script>
