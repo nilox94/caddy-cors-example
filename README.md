@@ -9,21 +9,16 @@ The client makes a **GET** request to the API and renders the response in the we
 
 # Usage
 
-To run the services it is only needed to execute
-```sh
+To run the services you only need to execute
+```
 docker-compose up
 ```
+To test the API just open [this](http://api-proxy.container.address/sample/path?q=uery&s=tring) in your browser, and [this](http://client-proxy.container.address) to test the client.
 
-To test the API just try in your browser [http://api-proxy.container.address/sample/path?q=uery&s=tring]().
-
-To test the client, open [http://client-proxy.container.address]().
-
-If you use [docker-hoster](https://github.com/dvddarias/docker-hoster), you can access the API through
-[http://api.caddy-cors.com]() and the client through [http://client.caddy-cors.com]().
-
+If you use [docker-hoster](https://github.com/nilox94/traefik-hoster), you can access the [API](http://api.caddy-cors.com) and the [client](http://client.caddy-cors.com) through their aliases in the Docker network.
 
 ## Note
 
-I defend personally the idea of solving this problem only once, on the web server.
+I defend the idea of solving this problem only once, from the beginning on the webserver.
 The use of CORS extensions in web frameworks is only a temporary solution for development.
-So, why not always use docker, even in development?
+So why not always use docker, even in development?
